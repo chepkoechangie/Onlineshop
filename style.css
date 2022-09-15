@@ -52,6 +52,7 @@ section{
     padding:1rem 9%;
 }
 
+
 .heading{
     padding:1rem 0;
     margin-bottom: 2rem;
@@ -690,4 +691,9 @@ header.active{
         border-bottom: none;
     }
 
+}
+.product-cont{
+    display: flex ;
+    flex-wrap: wrap;
+    gap:12px;
 }
