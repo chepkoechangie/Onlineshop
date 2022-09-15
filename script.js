@@ -1,153 +1,152 @@
-let navbar = document.querySelector('.navbar')
+let navbar = document.querySelector(".navbar");
 
-document.querySelector('#menu-bar').onclick = () => {
-    navbar.classList.toggle('active');
-}
+document.querySelector("#menu-bar").onclick = () => {
+  navbar.classList.toggle("active");
+};
 
-document.querySelector('#close').onclick = () => {
-    navbar.classList.remove('active');
-}
+document.querySelector("#close").onclick = () => {
+  navbar.classList.remove("active");
+};
 
 window.onscroll = () => {
+  navbar.classList.remove("active");
 
-    navbar.classList.remove('active');
+  if (window.scrollY > 100) {
+    document.querySelector("header").classList.add("active");
+  } else {
+    document.querySelector("header").classList.remove("active");
+  }
+};
 
-    if (window.scrollY > 100) {
-        document.querySelector('header').classList.add('active');
-    } else {
-        document.querySelector('header').classList.remove('active');
-    }
-
-}
-
-let themeToggler = document.querySelector('#theme-toggler');
+let themeToggler = document.querySelector("#theme-toggler");
 
 themeToggler.onclick = () => {
-    themeToggler.classList.toggle('fa-sun');
-    if (themeToggler.classList.contains('fa-sun')) {
-        document.querySelector('body').classList.add('active');
-    } else {
-        document.querySelector('body').classList.remove('active');
-    }
-}
+  themeToggler.classList.toggle("fa-sun");
+  if (themeToggler.classList.contains("fa-sun")) {
+    document.querySelector("body").classList.add("active");
+  } else {
+    document.querySelector("body").classList.remove("active");
+  }
+};
 
-document.querySelectorAll('.small-image-1').forEach(images => {
-    images.onclick = () => {
-        document.querySelector('.big-image-1').src = images.getAttribute('src');
-    }
+document.querySelectorAll(".small-image-1").forEach((images) => {
+  images.onclick = () => {
+    document.querySelector(".big-image-1").src = images.getAttribute("src");
+  };
 });
 
-document.querySelectorAll('.small-image-2').forEach(images => {
-    images.onclick = () => {
-        document.querySelector('.big-image-2').src = images.getAttribute('src');
-    }
+document.querySelectorAll(".small-image-2").forEach((images) => {
+  images.onclick = () => {
+    document.querySelector(".big-image-2").src = images.getAttribute("src");
+  };
 });
 
-document.querySelectorAll('.small-image-3').forEach(images => {
-    images.onclick = () => {
-        document.querySelector('.big-image-3').src = images.getAttribute('src');
-    }
+document.querySelectorAll(".small-image-3").forEach((images) => {
+  images.onclick = () => {
+    document.querySelector(".big-image-3").src = images.getAttribute("src");
+  };
 });
 
-let countDate = new Date('aug 19, 2022 00:00:00').getTime();
+let countDate = new Date("aug 19, 2022 00:00:00").getTime();
 
 function countDown() {
+  let now = new Date().getTime();
+  gap = countDate - now;
 
-    let now = new Date().getTime();
-    gap = countDate - now;
+  let seconds = 1000;
+  let minutes = seconds * 60;
+  let hours = minutes * 60;
+  let days = hours * 24;
 
-    let seconds = 1000;
-    let minutes = seconds * 60;
-    let hours = minutes * 60;
-    let days = hours * 24;
+  let d = Math.floor(gap / days);
+  let h = Math.floor((gap % days) / hours);
+  let m = Math.floor((gap % hours) / minutes);
+  let s = Math.floor((gap % minutes) / seconds);
 
-    let d = Math.floor(gap / (days));
-    let h = Math.floor((gap % (days)) / (hours));
-    let m = Math.floor((gap % (hours)) / (minutes));
-    let s = Math.floor((gap % (minutes)) / (seconds));
-
-    document.getElementById('days').innerText = d;
-    document.getElementById('hours').innerText = h;
-    document.getElementById('minutes').innerText = m;
-    document.getElementById('seconds').innerText = s;
-
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").innerText = m;
+  document.getElementById("seconds").innerText = s;
 }
 
 setInterval(function () {
-    countDown()
+  countDown();
 }, 1000);
 
 var swiper = new Swiper(".product-slider", {
-    slidesPerView: 3,
-    loop: true,
-    spaceBetween: 10,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
+  slidesPerView: 3,
+  loop: true,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
     },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+    550: {
+      slidesPerView: 2,
     },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        550: {
-            slidesPerView: 2,
-        },
-        800: {
-            slidesPerView: 3,
-        },
-        1000: {
-            slidesPerView: 3,
-        },
+    800: {
+      slidesPerView: 3,
     },
+    1000: {
+      slidesPerView: 3,
+    },
+  },
 });
 
 var swiper = new Swiper(".review-slider", {
-    slidesPerView: 3,
-    loop: true,
-    spaceBetween: 10,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
+  slidesPerView: 3,
+  loop: true,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
     },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        550: {
-            slidesPerView: 2,
-        },
-        800: {
-            slidesPerView: 3,
-        },
-        1000: {
-            slidesPerView: 3,
-        },
+    550: {
+      slidesPerView: 2,
     },
+    800: {
+      slidesPerView: 3,
+    },
+    1000: {
+      slidesPerView: 3,
+    },
+  },
 });
-
 
 // Additional Code
 
 const products = document.getElementById("products");
 
 fetch("https://fakestoreapi.com/products/")
-    .then((response) => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error("NETWORK RESPONSE ERROR");
-        }
-    }).then(response => [response].forEach(data => {
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("NETWORK RESPONSE ERROR");
+    }
+  })
+  .then((response) =>
+    [response].forEach((data) => {
+      function displayProducts(data) {
+        console.log(data.price);
 
-        function displayProducts(data) {
-            console.log(data.price)
-
-            return " <div class=\"swiper-slide\">" + data.map(data =>
-
+        return (
+          ' <div class="swiper-slide">' +
+          data
+            .map(
+              (data) =>
                 ` 
                
                 <div class="slide ">
@@ -174,152 +173,35 @@ fetch("https://fakestoreapi.com/products/")
                         </div>
           
           </div>`
-            ).join("") + "</div>";
-
-        }
-        products.innerHTML = displayProducts(data);
-
-
-    }))
-    .catch((error) => console.error("FETCH ERROR:", error))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            )
+            .join("") +
+          "</div>"
+        );
+      }
+      products.innerHTML = displayProducts(data);
+      document.getElementById("search-bar").addEventListener("keyup", () => {
+        const headingContainer = document.querySelectorAll(".content");
+        headingContainer.forEach((container) => {
+          if (container.children[1].nodeName === "H3") {
+            if (
+              container.children[1].textContent
+                .toLowerCase()
+                .split(" ")
+                .includes(
+                  document.getElementById("search-bar").value.toLowerCase()
+                )
+            ) {
+              container.parentElement.style.display = "block";
+            } else {
+              container.parentElement.style.display = "none";
+              //   console.log("not h3");
+            }
+          } else {
+            container.parentElement.style.display = "none";
+          }
+          //   console.log(container.children[1].textContent);
+        });
+      });
+    })
+  )
+  .catch((error) => console.error("FETCH ERROR:", error));
